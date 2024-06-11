@@ -35,4 +35,37 @@ public class NotificationService {
 			return "Error while Subscribing";
 		}
 	}
+
+	public String notify(String topicId) {
+		try {
+
+			if (topicId == null) {
+				throw new IllegalArgumentException("Topic ID is null");
+			}
+
+			Set<Subscriber> subscribers = subscriptions.get(topicId);
+			int count=0;
+			if (subscribers != null) {
+				if(subscribers.isEmpty())
+				{
+					log.info("No Subscribers has Subscribed this topic");
+					return "No Subscribers has Subscribed this topic";
+				}
+
+				for (Subscriber subscriber : subscribers) {
+					// Implement specific notification logic based on your requirements (e.g., email, SMS, etc.)
+					subscriber.sendNotification();
+					count++;
+				}
+			}else{
+				log.info("Topic ID not found");
+				return "Topic Not Found";
+			}
+			return "Notified "+count+" Subscribers";
+		}catch (Exception e){
+			// catch error
+			return "Failed";
+		}
+	}
+	
 }

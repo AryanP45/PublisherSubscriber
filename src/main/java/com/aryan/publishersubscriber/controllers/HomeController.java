@@ -26,4 +26,17 @@ public class HomeController {
 			return ResponseEntity.ok(result);
 		}
 	}
+
+	@GetMapping("/notify")
+	public ResponseEntity<?> notify(@RequestParam String topicId){
+		String result = notificationService.notify(topicId);
+		if ("No Subscribers has Subscribed this topic".equals(result) || "Topic Not Found".equals(result)) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+		} else if ("Failed".equals(result)) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(result);
+		} else {
+			return ResponseEntity.ok(result);
+		}
+	}
+
 }
