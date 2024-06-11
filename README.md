@@ -16,6 +16,8 @@ git clone https://github.com/AryanP45/PublisherSubscriber.git
 
 #### API Documentation
 
+### Postman Collection : [Link to collection](https://gold-shuttle-97219.postman.co/workspace/PublisherSubscriber~2caa37b4-fce6-45e9-b63e-d20b1e657db1/collection/30016809-09fc4a40-f107-4953-ae01-149d9b40de1f?action=share&creator=30016809)
+
 The system provides the following APIs:
 
 ##### 1. Subscribe
