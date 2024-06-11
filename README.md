@@ -2,6 +2,8 @@
 
 This project implements a publisher-subscriber notification system using Java and Spring Boot. It allows subscribers to subscribe to topics, receive notifications for subscribed topics, and unsubscribe from topics.
 
+Live Link: https://publishersubscriber.onrender.com
+
 #### Setup
 
 1. Clone the repository:
@@ -10,28 +12,29 @@ This project implements a publisher-subscriber notification system using Java an
 git clone https://github.com/AryanP45/PublisherSubscriber.git
 ```
 
-2. Open the project in your preferred Java IDE. (Intellij Idea)
+2. Open the project in your preferred Java IDE. (IntelliJ IDEA)
 
 3. Build the project using Maven.
 
 #### API Documentation
 
-### Postman Collection : [Link to collection](https://gold-shuttle-97219.postman.co/workspace/PublisherSubscriber~2caa37b4-fce6-45e9-b63e-d20b1e657db1/collection/30016809-09fc4a40-f107-4953-ae01-149d9b40de1f?action=share&creator=30016809)
+### Postman Collection: [Link to API Collection](https://gold-shuttle-97219.postman.co/workspace/PublisherSubscriber~2caa37b4-fce6-45e9-b63e-d20b1e657db1/collection/30016809-09fc4a40-f107-4953-ae01-149d9b40de1f?action=share&creator=30016809)
 
 The system provides the following APIs:
 
 ##### 1. Subscribe
 
 This API allows subscribers to subscribe to a topic.  
-**Note** : Creates a new topic it isnt exist.
+**Note**: Creates a new topic if it doesn't exist.
 
-- **Endpoint**: `POST /api/subscribe`
+- **Endpoint**: `POST /api/subscribe`  
+  Try with live link: https://publishersubscriber.onrender.com/api/subscribe
 - **Request Body**:
   ```json
-    {
-        "topicId": string,
-        "subscriberId":string
-    }
+  {
+    "topicId": "string",
+    "subscriberId": "string"
+  }
   ```
 - **Responses**:
   - 200 OK: Successfully subscribed.
@@ -42,7 +45,8 @@ This API allows subscribers to subscribe to a topic.
 
 This API sends notifications to all subscribers of a particular topic.
 
-- **Endpoint**: `GET /api/notify`
+- **Endpoint**: `GET /api/notify`  
+  Try with live link: https://publishersubscriber.onrender.com/api/notify
 - **Query Parameters**:
   - `topicId`: The ID of the topic to notify subscribers.
 - **Responses**:
@@ -54,13 +58,14 @@ This API sends notifications to all subscribers of a particular topic.
 
 This API allows subscribers to unsubscribe from a topic.
 
-- **Endpoint**: `POST /api/unsubscribe`
+- **Endpoint**: `POST /api/unsubscribe`  
+  Try with live link: https://publishersubscriber.onrender.com/api/unsubscribe
 - **Request Body**:
   ```json
-    {
-        "topicId":string,
-        "subscriberId":string
-    }
+  {
+    "topicId": "string",
+    "subscriberId": "string"
+  }
   ```
 - **Responses**:
   - 200 OK: Successfully unsubscribed.
@@ -91,6 +96,13 @@ public class Driver {
     }
 }
 ```
+output: 
+```java
+Subscribe Result: subscribed Successfully
+Notification sent to subscriber with ID : subscriber1
+Notify Result: Notified 1 Subscribers
+Unsubscribe Result: Unsubscribed
+```
 
 #### Edge Cases
 
@@ -101,3 +113,6 @@ public class Driver {
 #### Contributors
 
 - Aryan Patil (@aryanp45)
+
+
+If any query, contact: aryanitinpatil@gmail.com
