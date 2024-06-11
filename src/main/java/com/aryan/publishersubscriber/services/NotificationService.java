@@ -68,4 +68,29 @@ public class NotificationService {
 		}
 	}
 	
+	public String unsubscribe(String topicId, String subscriberId) {
+		try {
+
+			if (topicId == null || subscriberId == null) {
+				throw new IllegalArgumentException("Topic ID or Subscriber ID is null");
+			}
+
+			Set<Subscriber> subscribers = subscriptions.get(topicId);
+			if (subscribers == null) {
+				log.info("Topic not found");
+				return "Topic not found";
+			}
+
+			Subscriber subscriber = new Subscriber(subscriberId);
+			if (!subscribers.remove(subscriber)) {
+				log.info("Subscriber not found");
+				return "Subscriber not found";
+			}
+
+			return "Unsubscribed";
+		} catch (Exception e) {
+			return "Cannot Unsubscribed";
+		}
+	}
+
 }

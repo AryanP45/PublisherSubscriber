@@ -39,4 +39,16 @@ public class HomeController {
 		}
 	}
 
+	@PostMapping("/unsubscribe")
+	public ResponseEntity<?> unsubscribe(@RequestBody SubscriberDto subscriberDto){
+		String result = notificationService.unsubscribe(subscriberDto.getTopicId(), subscriberDto.getSubscriberId());
+		if ("Topic not found".equals(result) || "Subscriber not found".equals(result)) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+		} else if ("Cannot Unsubscribed".equals(result)) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(result);
+		} else {
+			return ResponseEntity.ok(result);
+		}
+	}
+
 }
