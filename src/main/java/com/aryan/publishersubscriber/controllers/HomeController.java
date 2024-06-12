@@ -14,6 +14,35 @@ public class HomeController {
 	
 	@Autowired
 	NotificationService notificationService;
+
+	@GetMapping()
+	public ResponseEntity<?> landingPage(){
+		String Response = """
+				<!DOCTYPE html>
+				<head>
+				    <title>Publisher-Subscriber Notification System</title>
+				    <style>
+				        body {
+				            font-family: Arial, sans-serif;
+				            margin: 50px;
+				        }
+				    </style>
+				    <script>
+				        setTimeout(function(){
+				            window.location.href = 'https://github.com/AryanP45/PublisherSubscriber?tab=readme-ov-file#api-documentation';
+				        }, 3000);
+				    </script>
+				</head>
+				<body>
+				    <h1>Welcome</h1>
+				    <p>This project implements a publisher-subscriber notification system using Java and Spring Boot. It allows subscribers to subscribe to topics, receive notifications for subscribed topics, and unsubscribe from topics.</p>
+				    <p> - Aryan Patil </p>
+				    <p>You will be redirected to API docs in 3 seconds...</p>
+				</body>
+				</html>
+				""";
+		return ResponseEntity.ok(Response);
+	}
 		
 	@PostMapping("/subscribe")
 	public ResponseEntity<?> subscribe(@RequestBody SubscriberDto subscriberDto){
