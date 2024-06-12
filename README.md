@@ -74,6 +74,15 @@ This API allows subscribers to unsubscribe from a topic.
   - 404 Not Found: Topic or subscriber not found.
   - 500 Internal Server Error: Error occurred while unsubscribing.
 
+##### 4. Get All Topics and Subscribers
+
+This API retrieves all topics along with their subscribers.
+
+- **Endpoint**: `GET /api/all`  
+  Try with live link: https://publishersubscriber.onrender.com/api/all
+- **Responses**:
+  - 200 OK: Successfully retrieved all topics with subscribers.
+
 #### Driver Function
 
 A driver function has been implemented to demonstrate the flow of the application. Below is a simple example:
