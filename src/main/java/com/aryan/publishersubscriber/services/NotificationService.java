@@ -1,11 +1,8 @@
 package com.aryan.publishersubscriber.services;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
+import com.aryan.publishersubscriber.dto.TopicWithSubscribersDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -91,6 +88,18 @@ public class NotificationService {
 		} catch (Exception e) {
 			return "Cannot Unsubscribed";
 		}
+	}
+
+	public List<TopicWithSubscribersDto> getAll(){
+		List<TopicWithSubscribersDto> topicsWithSubscribers = new ArrayList<>();
+
+		for (Map.Entry<String, Set<Subscriber>> entry : subscriptions.entrySet()) {
+			TopicWithSubscribersDto dto = new TopicWithSubscribersDto();
+			dto.setTopicId(entry.getKey());
+			dto.setSubscribers(entry.getValue());
+			topicsWithSubscribers.add(dto);
+		}
+		return topicsWithSubscribers;
 	}
 
 }

@@ -80,4 +80,9 @@ public class HomeController {
 		}
 	}
 
+	@GetMapping("/all")
+	public ResponseEntity<?> getAll(){
+		return ResponseEntity.ok(notificationService.getAll());
+	}
+
 }
