@@ -2,7 +2,8 @@
 
 This project implements a publisher-subscriber notification system using Java and Spring Boot. It allows subscribers to subscribe to topics, receive notifications for subscribed topics, and unsubscribe from topics.
 
-Live Link: https://publishersubscriber.onrender.com
+Live Link: https://publishersubscriber.onrender.com  
+> ***Note : First request to above URL can take longer time upto 50 sec , as i am using free instance to host it automatically shuts down after inactivity.***
 
 #### Setup
 
